@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Color palette ─────────────────────────── */
+  --color-ivory: #f7f3ec;
+  --color-marble: #fbfaf7;
+  --color-navy: #0b1b3d;
+  --color-navy-soft: #16264f;
+  --color-gold: #b89b5e;
+  --color-gold-soft: #d8c79b;
+  --color-ink: #1c1a17;
+
+  /* ── Typography ────────────────────────────── */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-garamond), Georgia, serif;
+  --font-script: var(--font-tangerine), cursive;
+
+  /* ── Easing ────────────────────────────────── */
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-navy);
+    color: var(--color-gold-soft);
+  }
+}
+
+/* Classic double-line frame, modernised. */
+@utility classic-frame {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--color-navy) 30%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--color-navy) 30%, transparent);
+  outline-offset: 5px;
+}
+
+/* Thin gold double-line frame for highlighted cards. */
+@utility gold-frame {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--color-gold) 35%, transparent);
+  outline-offset: 6px;
+}
+
+/* Letterspaced uppercase label — museum caption feel. */
+@utility caption-label {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+}
